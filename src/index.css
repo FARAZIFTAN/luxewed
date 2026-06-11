@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-black text-ivory font-sans;
+    overscroll-behavior: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/30 rounded-full;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-4xl;
+  }
+
+  .glass-nav {
+    @apply bg-black/70 backdrop-blur-lg border border-white/10;
+  }
+
+  .luxury-card {
+    @apply relative overflow-hidden rounded-4xl;
+  }
+
+  .luxury-card::before {
+    @apply absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent pointer-events-none;
+    content: '';
+  }
+
+  .gold-border {
+    @apply border border-gold/30 shadow-[0_0_20px_rgba(212,175,55,0.15)];
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3),
+                0 0 80px rgba(212, 175, 55, 0.1);
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-4 bg-gold text-black font-semibold rounded-2xl;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-gold-light active:scale-[0.98];
+    min-height: 56px;
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden px-8 py-4 bg-transparent text-ivory font-medium rounded-2xl;
+    @apply border border-gold/50;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:border-gold hover:bg-gold/10 active:scale-[0.98];
+    min-height: 56px;
+  }
+
+  .input-luxury {
+    @apply w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl;
+    @apply text-ivory placeholder:text-ivory/40;
+    @apply focus:outline-none focus:border-gold/50 focus:bg-white/10;
+    @apply transition-all duration-300;
+    min-height: 56px;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  .shimmer-gold {
+    background: linear-gradient(
+      90deg,
+      rgba(212, 175, 55, 0) 0%,
+      rgba(212, 175, 55, 0.3) 50%,
+      rgba(212, 175, 55, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+  .animate-delay-700 { animation-delay: 700ms; }
+  .animate-delay-800 { animation-delay: 800ms; }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
